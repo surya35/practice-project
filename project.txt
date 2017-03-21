@@ -1,0 +1,39 @@
+#java installation on ubuntu
+
+sudo apt-get update
+sudo apt-get install software-properties-common python-software-properties
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+sudo apt-get -y install oracle-java8-set-default
+
+## Installing Maven and Its Configuring ##
+
+# Method 1
+
+sudo wget -q http://redrockdigimark.com/apachemirror/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+tar -xzvf apache-maven-3.3.9-bin.tar.gz -C /opt/
+sudo update-alternatives --install /usr/bin/mvn maven /opt/apache-maven-3.3.9/bin/mvn 1001
+mvn -v
+
+# Method 2
+
+#sudo wget -q http://redrockdigimark.com/apachemirror/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+#tar -xzvf apache-maven-3.3.9-bin.tar.gz -C /usr/local
+#sudo ln -s /usr/local/apache-maven-3.3.9/bin/mvn /usr/bin/mvn
+#echo "export M2_HOME=/usr/local/apache-maven-3.3.9" >> /etc/.profile
+#echo "export PATH=${M2_HOME}/bin:${PATH}" >> /etc/.profile
+#source /etc/.profile
+#mvn -v
+
+#Tomcat installation
+#https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-14-04
+#https://www.liquidweb.com/kb/how-to-install-apache-tomcat-8-on-ubuntu-14-04/
+
+#jenkins installation
+
+1.wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+2.sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+3.sudo apt-get update
+4.sudo apt-get install jenkins
+#https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu

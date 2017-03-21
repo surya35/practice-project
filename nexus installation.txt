@@ -1,0 +1,18 @@
+sudo apt-get install software-properties-common python-software-properties
+ sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+sudo apt-get -y install oracle-java8-set-default
+wget https://www.sonatype.com/oss-thank-you-tar.gz
+tar xvzf nexus-2.14.3-02-bundle.tar.gz
+cp -r nexus-2.14.3-02 /usr/local
+cd /usr/local
+sudo ln -s nexus-2.14.3-02 nexus
+
+
+vi /etc/profile
+
+export NEXUS_PLATFORM=LINUX-x86-64
+export NEXUS_HOME= /usr/local/nexus-2.14.3-02
+export NEXUS_EXEC=$NEXUS_HOME/usr/local/nexus-2.14.3-02/bin/jsw/$NEXUS_PLATFORM
+export PATH=$NEXUS_EXEC:$PATH
